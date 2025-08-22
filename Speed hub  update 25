@@ -1,1 +1,203 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/kckckckckcc/Speed-hub-/refs/heads/main/Speed%20hub%20%20update%2021"))()
+-- Hussein Hub - Speed Hub with Key System + Player Join/Leave Notifications
+-- by TikTok hussein_313_113
+local player = game.Players.LocalPlayer
+local StarterGui = game:GetService("StarterGui")
+
+-- خانة واحدة للإشعار عند أول تشغيل
+if not player:FindFirstChild("FirstRunNotification") then
+    local marker = Instance.new("BoolValue")
+    marker.Name = "FirstRunNotification"
+    marker.Parent = player
+
+    -- إشعار للتواصل مع المطور + نسخ الاسم تلقائي
+    StarterGui:SetCore("SendNotification", {
+        Title = "مرحبًا بك!",
+        Text = "للتواصل مع المطور Roblox: Hussein463456",
+        Duration = 10
+    })
+
+    -- نسخ الاسم تلقائي في الحافظة
+    setclipboard("Hussein463456")
+end
+-- خانة واحدة للإشعار عند أول تشغيل
+if not player:FindFirstChild("FirstRunNotification") then
+    local marker = Instance.new("BoolValue")
+    marker.Name = "FirstRunNotification"
+    marker.Parent = player
+
+    -- إشعار للتواصل مع المطور + نسخ الاسم تلقائي
+    StarterGui:SetCore("SendNotification", {
+        Title = "مرحبًا بك!",
+        Text = "للتواصل مع المطور TikTok: hussein_313_113",
+        Duration = 10
+    })
+
+    -- نسخ الاسم تلقائي في الحافظة
+    setclipboard("hussein_313_113")
+end
+local Key = "1234"
+local firstRun = true
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.Size = UDim2.new(0, 300, 0, 250)
+Frame.Position = UDim2.new(0.35,0,0.3,0)
+Frame.BackgroundColor3 = Color3.fromRGB(20,20,20)
+Frame.Active = true
+Frame.Draggable = true
+
+-- العنوان
+local Title = Instance.new("TextLabel", Frame)
+Title.Size = UDim2.new(1,0,0,40)
+Title.Text = "⚡ Hussein Hub ⚡"
+Title.TextColor3 = Color3.fromRGB(255,255,255)
+Title.BackgroundColor3 = Color3.fromRGB(40,40,40)
+Title.Font = Enum.Font.SourceSansBold
+Title.TextScaled = true
+
+-- خانة المفتاح
+local KeyBox = Instance.new("TextBox", Frame)
+KeyBox.Size = UDim2.new(0,200,0,30)
+KeyBox.Position = UDim2.new(0,50,0,60)
+KeyBox.PlaceholderText = "المفتاح هنا"
+KeyBox.TextColor3 = Color3.fromRGB(255,255,255)
+KeyBox.BackgroundColor3 = Color3.fromRGB(35,35,35)
+
+-- زر الحصول على المفتاح
+local GetKeyBtn = Instance.new("TextButton", Frame)
+GetKeyBtn.Size = UDim2.new(0,200,0,30)
+GetKeyBtn.Position = UDim2.new(0,50,0,100)
+GetKeyBtn.Text = "احصل على المفتاح"
+GetKeyBtn.BackgroundColor3 = Color3.fromRGB(0,120,255)
+GetKeyBtn.TextColor3 = Color3.fromRGB(255,255,255)
+
+-- زر تحقق المفتاح
+local SubmitBtn = Instance.new("TextButton", Frame)
+SubmitBtn.Size = UDim2.new(0,200,0,30)
+SubmitBtn.Position = UDim2.new(0,50,0,140)
+SubmitBtn.Text = "✅ تحقق المفتاح"
+SubmitBtn.BackgroundColor3 = Color3.fromRGB(50,150,50)
+SubmitBtn.TextColor3 = Color3.fromRGB(255,255,255)
+
+-- زر خروج
+local ExitBtn = Instance.new("TextButton", Frame)
+ExitBtn.Size = UDim2.new(0,30,0,30)
+ExitBtn.Position = UDim2.new(1,-35,0,5)
+ExitBtn.Text = "X"
+ExitBtn.BackgroundColor3 = Color3.fromRGB(200,50,50)
+ExitBtn.TextColor3 = Color3.fromRGB(255,255,255)
+ExitBtn.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
+
+-- دوال السرعة
+local function ActivateHusseinHub()
+    local SpeedFrame = Instance.new("Frame", ScreenGui)
+    SpeedFrame.Size = UDim2.new(0, 300, 0, 220)
+    SpeedFrame.Position = UDim2.new(0.35,0,0.3,0)
+    SpeedFrame.BackgroundColor3 = Color3.fromRGB(20,20,20)
+    SpeedFrame.Active = true
+    SpeedFrame.Draggable = true
+
+    local Title2 = Instance.new("TextLabel", SpeedFrame)
+    Title2.Size = UDim2.new(1,0,0,40)
+    Title2.Text = "⚡ Hussein Hub ⚡"
+    Title2.TextColor3 = Color3.fromRGB(255,255,255)
+    Title2.BackgroundColor3 = Color3.fromRGB(40,40,40)
+    Title2.Font = Enum.Font.SourceSansBold
+    Title2.TextScaled = true
+
+    local SpeedBox = Instance.new("TextBox", SpeedFrame)
+    SpeedBox.Size = UDim2.new(0,200,0,30)
+    SpeedBox.Position = UDim2.new(0,50,0,60)
+    SpeedBox.PlaceholderText = "اكتب السرعة"
+    SpeedBox.BackgroundColor3 = Color3.fromRGB(35,35,35)
+    SpeedBox.TextColor3 = Color3.fromRGB(255,255,255)
+
+    local SetSpeedBtn = Instance.new("TextButton", SpeedFrame)
+    SetSpeedBtn.Size = UDim2.new(0,200,0,30)
+    SetSpeedBtn.Position = UDim2.new(0,50,0,100)
+    SetSpeedBtn.Text = "تفعيل السرعة"
+    SetSpeedBtn.BackgroundColor3 = Color3.fromRGB(50,150,50)
+    SetSpeedBtn.TextColor3 = Color3.fromRGB(255,255,255)
+
+    local InfiniteSpeedBtn = Instance.new("TextButton", SpeedFrame)
+    InfiniteSpeedBtn.Size = UDim2.new(0,200,0,30)
+    InfiniteSpeedBtn.Position = UDim2.new(0,50,0,140)
+    InfiniteSpeedBtn.Text = "سرعة لانهائية"
+    InfiniteSpeedBtn.BackgroundColor3 = Color3.fromRGB(255,140,0)
+    InfiniteSpeedBtn.TextColor3 = Color3.fromRGB(255,255,255)
+
+    local ResetBtn = Instance.new("TextButton", SpeedFrame)
+    ResetBtn.Size = UDim2.new(0,200,0,30)
+    ResetBtn.Position = UDim2.new(0,50,0,180)
+    ResetBtn.Text = "رجوع طبيعي"
+    ResetBtn.BackgroundColor3 = Color3.fromRGB(150,50,50)
+    ResetBtn.TextColor3 = Color3.fromRGB(255,255,255)
+
+    local function setSpeed(speed)
+        local plr = game.Players.LocalPlayer
+        local char = plr.Character or plr.CharacterAdded:Wait()
+        local humanoid = char:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = speed
+        end
+    end
+
+    SetSpeedBtn.MouseButton1Click:Connect(function()
+        local speed = tonumber(SpeedBox.Text)
+        if speed then
+            setSpeed(speed)
+        end
+    end)
+
+    InfiniteSpeedBtn.MouseButton1Click:Connect(function()
+        setSpeed(1e9)
+    end)
+
+    ResetBtn.MouseButton1Click:Connect(function()
+        setSpeed(16)
+    end)
+
+    -- إشعارات دخول اللاعبين
+    Players.PlayerAdded:Connect(function(p)
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "دخول لاعب";
+            Text = p.Name.." دخل السيرفر";
+            Duration = 3;
+        })
+    end)
+
+    -- إشعارات خروج اللاعبين
+    Players.PlayerRemoving:Connect(function(p)
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "خروج لاعب";
+            Text = p.Name.." خرج من السيرفر";
+            Duration = 3;
+        })
+    end)
+end
+
+-- زر الحصول على المفتاح
+GetKeyBtn.MouseButton1Click:Connect(function()
+    if firstRun then
+        KeyBox.Text = Key
+        firstRun = false
+    end
+end)
+
+-- زر تحقق المفتاح
+SubmitBtn.MouseButton1Click:Connect(function()
+    if KeyBox.Text == Key then
+        Frame:Destroy()
+        ActivateHusseinHub()
+    else
+        KeyBox.Text = "❌ خطأ بالمفتاح"
+        KeyBox.TextColor3 = Color3.fromRGB(255,0,0)
+        wait(1.5)
+        KeyBox.Text = ""
+        KeyBox.TextColor3 = Color3.fromRGB(255,255,255)
+    end
+end)
