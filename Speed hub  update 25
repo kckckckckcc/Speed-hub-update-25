@@ -2,6 +2,25 @@
 -- by TikTok hussein_313_113
 local player = game.Players.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
+-- خانة GUI صغيرة للحقوق
+local ScreenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.Size = UDim2.new(0, 200, 0, 40)
+Frame.Position = UDim2.new(0.5, -100, 0.9, 0)
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BackgroundTransparency = 0.3
+Frame.BorderSizePixel = 0
+Frame.Active = true
+Frame.Draggable = true -- تقدر تحرك الخانة
+
+local TextLabel = Instance.new("TextLabel", Frame)
+TextLabel.Size = UDim2.new(1, 0, 1, 0)
+TextLabel.BackgroundTransparency = 1
+TextLabel.Text = "حقوق: tiktok.com/@hussein_313_113"
+TextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.TextScaled = true
+
 
 -- خانة واحدة للإشعار عند أول تشغيل
 if not player:FindFirstChild("FirstRunNotification") then
