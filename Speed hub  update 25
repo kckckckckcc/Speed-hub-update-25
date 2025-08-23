@@ -12,7 +12,44 @@ Frame.BackgroundTransparency = 0.3
 Frame.BorderSizePixel = 0
 Frame.Active = true
 Frame.Draggable = true -- تقدر تحرك الخانة
+-- سكربت Lua: إشعار "جارٍ التحميل" مع أوامر بسيطة
 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local PlayerGui = player:WaitForChild("PlayerGui")
+
+-- إنشاء إطار للواجهة
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = PlayerGui
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 300, 0, 100)
+Frame.Position = UDim2.new(0.5, -150, 0.5, -50)
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BorderSizePixel = 0
+Frame.Parent = ScreenGui
+
+-- إنشاء نص "جارٍ التحميل"
+local LoadingText = Instance.new("TextLabel")
+LoadingText.Size = UDim2.new(1, 0, 1, 0)
+LoadingText.Position = UDim2.new(0, 0, 0, 0)
+LoadingText.BackgroundTransparency = 1
+LoadingText.TextColor3 = Color3.fromRGB(255, 255, 255)
+LoadingText.Font = Enum.Font.SourceSansBold
+LoadingText.TextSize = 24
+LoadingText.Text = "جارٍ التحميل..."
+LoadingText.Parent = Frame
+
+-- محاكاة تحميل الأوامر
+local commands = { "سرعه"} -- أمثلة أوامر
+for i, command in ipairs(commands) do
+    LoadingText.Text = "جارٍ التحميل: "..command
+    wait(1) -- محاكاة وقت التحميل لكل أمر
+end
+
+LoadingText.Text = "تم التحميل بنجاح!"
+wait(2)
+ScreenGui:Destroy() -- إزالة واجهة التحميل بعد الانتهاء
 local TextLabel = Instance.new("TextLabel", Frame)
 TextLabel.Size = UDim2.new(1, 0, 1, 0)
 TextLabel.BackgroundTransparency = 1
