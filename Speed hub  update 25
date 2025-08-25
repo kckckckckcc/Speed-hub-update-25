@@ -68,12 +68,12 @@ if not player:FindFirstChild("FirstRunNotification") then
     -- إشعار للتواصل مع المطور + نسخ الاسم تلقائي
     StarterGui:SetCore("SendNotification", {
         Title = "مرحبًا بك!",
-        Text = "للتواصل مع المطور Roblox: Hussein463456",
+        Text = "للتواصل مع المطور Roblox: Husseinlraq_313",
         Duration = 10
     })
 
     -- نسخ الاسم تلقائي في الحافظة
-    setclipboard("Hussein463456")
+    setclipboard("Husseinlraq_313")
 end
 -- خانة واحدة للإشعار عند أول تشغيل
 if not player:FindFirstChild("FirstRunNotification") then
